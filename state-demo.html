@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React 状态</title>
+    <script src="//cdn.bootcss.com/react/15.2.1/react.js"></script>
+    <script src="//cdn.bootcss.com/react/15.2.1/react-dom.js"></script>
+    <script src="//cdn.bootcss.com/babel-core/5.8.23/browser.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        var LikeButton = React.createClass({
+            getInitialState: function() {
+                return {liked: false};
+            },
+            myHandleClick: function(event) {
+                this.setState({liked: !this.state.liked});
+            },
+            render: function() {
+                var text = this.state.liked ? 'like' : 'havn\'t liked';
+                return (
+                        <p onClick={this.myHandleClick}>
+                            you {text} this. Click to toggle.
+                        </p>
+                );
+            }
+        });
+
+        ReactDOM.render(
+                <LikeButton />,
+                document.getElementById('example')
+        );
+    </script>
+</body>
+</html>

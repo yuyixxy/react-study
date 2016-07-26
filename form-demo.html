@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React 表单</title>
+    <script src="//cdn.bootcss.com/react/15.2.1/react.js"></script>
+    <script src="//cdn.bootcss.com/react/15.2.1/react-dom.js"></script>
+    <script src="//cdn.bootcss.com/babel-core/5.8.23/browser.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    var MyInpt = React.createClass({
+        getInitialState: function() {
+            return {value: ''};
+        },
+        myHandleChange: function(event) {
+            this.setState({value: event.target.value});
+        },
+        render: function() {
+            var value = this.state.value;
+            return (
+                    <div>
+                        <input type="text" value={value} onChange={this.myHandleChange} />
+                        <p>{value}</p>
+                    </div>
+            );
+        }
+    });
+
+    ReactDOM.render(
+            <MyInpt />,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>
