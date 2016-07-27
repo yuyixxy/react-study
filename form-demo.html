@@ -8,30 +8,32 @@
     <script src="//cdn.bootcss.com/babel-core/5.8.23/browser.js"></script>
 </head>
 <body>
-<div id="example"></div>
-<script type="text/babel">
-    var MyInpt = React.createClass({
-        getInitialState: function() {
-            return {value: ''};
-        },
-        myHandleChange: function(event) {
-            this.setState({value: event.target.value});
-        },
-        render: function() {
-            var value = this.state.value;
-            return (
+    <div id="example"></div>
+    <script type="text/babel">
+        var MyInpt = React.createClass({
+            getInitialState: function() {
+                return {value: 'Hello'};
+            },
+            myHandleChange: function(event) {
+                this.setState({
+                    value: event.target.value
+                });
+            },
+            render: function() {
+                var value = this.state.value;
+                return (
                     <div>
                         <input type="text" value={value} onChange={this.myHandleChange} />
                         <p>{value}</p>
                     </div>
-            );
-        }
-    });
+                );
+            }
+        });
 
-    ReactDOM.render(
-            <MyInpt />,
-            document.getElementById('example')
-    );
-</script>
+        ReactDOM.render(
+                <MyInpt />,
+                document.getElementById('example')
+        );
+    </script>
 </body>
 </html>

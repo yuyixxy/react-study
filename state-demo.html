@@ -10,13 +10,18 @@
 <body>
     <div id="example"></div>
     <script type="text/babel">
+
         var LikeButton = React.createClass({
+            // 定义组件的初始状态，初始 liked 为 false
             getInitialState: function() {
                 return {liked: false};
             },
+            // 通过 setState 修改组件状态
+            // setState 过后会 React 会调用 render 方法重渲染
             myHandleClick: function(event) {
                 this.setState({liked: !this.state.liked});
             },
+            // 通过 this.state 获取当前状态
             render: function() {
                 var text = this.state.liked ? 'like' : 'havn\'t liked';
                 return (
@@ -31,6 +36,7 @@
                 <LikeButton />,
                 document.getElementById('example')
         );
+
     </script>
 </body>
 </html>
